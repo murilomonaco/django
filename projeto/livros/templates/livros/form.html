@@ -1,0 +1,22 @@
+{% extends 'livros/base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Django App</title>
+<meta name="description" content="Página Inicial do Aplicativo">
+<meta name="author" content="ESAG">
+</head>
+<body>
+{% block body %}
+<form method='POST'>
+          {% csrf_token %}
+          {{ form }}
+          <button type='submit'> Salvar </button>
+     </form> 
+{% endblock %}      
+</body>
+</html>
+
+

@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Django App</title>
+<meta name="description" content="Página Inicial do Aplicativo">
+<meta name="author" content="ESAG">
+<link rel='stylesheet' href='{% static 'livros/style.css' %}'>
+</head>
+<body>
+<nav>
+<ul>
+<li><a href="http://esag.udesc.br">http://esag.udesc.br</a></li>
+<li><a href="/livros">Home</a></li>
+<li><a href="/livros/lista">Lista de Produtos</a></li>
+<li><a href="/services">Serviços</a></li>
+<li><a href="/contact">Contato</a></li>
+</ul>
+</nav>
+<hr />
+<center><h1>Listagem De Objetos</h1>
+<p>Você está visualizando a listagem de objetos.</p></center>
+{% for item in item_lista %}
+    <ul>    
+      <li>
+        <a href='{% url 'livros:detail' item.id %}'> {{ item.id }} - {{ item.item_nome}}</a>
+      </li>
+    </ul>
+{% endfor %}
+</body>
